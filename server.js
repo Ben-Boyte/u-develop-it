@@ -18,11 +18,11 @@ const db = mysql.createConnection(
     console.log('Connected to the election database.')
   );
 
-
-app.get('/', (req, res) => {
-    res.json({
-      message: 'Hello World'
-    });
+  db.query(`SELECT * FROM candidates WHERE id = 1`, (err, row) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(row);
   });
 
   app.use((req, res) => {
